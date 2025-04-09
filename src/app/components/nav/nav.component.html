@@ -1,0 +1,40 @@
+<div class="container-nav">
+<img class="logo" src="/logo.png" alt="logo">
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container-fluid">  
+      <!-- Botão hamburguer -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navPills"
+        aria-controls="navPills" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <!-- Área que colapsa -->
+      <div class="collapse navbar-collapse" id="navPills">
+        <!-- MANTENDO O SEU UL -->
+        <ul class="nav nav-pills ms-auto">
+          <li class="nav-item">
+            <a class="nav-link " 
+            [class.active]="activeTab === 'Home'"
+            (click)="setActive('Home')"
+            aria-current="page" 
+            href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"
+            [class.active]="activeTab === 'Repositories'"
+            (click)="setActive('Repositories')"
+             href="#">Repositories</a>
+          </li>
+          <li class="nav-item">
+            <a 
+            class="nav-link" 
+            href="#"
+            [class.active]="activeTab === 'Stars'"
+            (click)="setActive('Stars')"
+            >Stars</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

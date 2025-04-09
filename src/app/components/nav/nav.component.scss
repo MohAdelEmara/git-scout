@@ -1,0 +1,18 @@
+
+.container-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -40px;
+
+}
+
+.nav {
+    justify-content: right;
+    gap: 10px;
+}
+
+.logo {
+    width: 220px;
+    height: 180px;
+}
