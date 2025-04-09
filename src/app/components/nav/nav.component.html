@@ -1,5 +1,13 @@
 <div class="container-nav">
 <img class="logo" src="/logo.png" alt="logo">
+<nav class="navbar bg-white">
+    <div class="container-fluid">
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="cade o nome do dev ?" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit"> search </button>
+      </form>
+    </div>
+  </nav>
 <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container-fluid">  
       <!-- Botão hamburguer -->
@@ -17,18 +25,24 @@
             [class.active]="activeTab === 'Home'"
             (click)="setActive('Home')"
             aria-current="page" 
-            href="#">HOME</a>
+            [routerLink]="['/home']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link"
             [class.active]="activeTab === 'Repositories'"
             (click)="setActive('Repositories')"
-             href="#">REPOSITORIES</a>
+            [routerLink]="['/repo']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }">REPOSITORIES</a>
           </li>
           <li class="nav-item">
             <a 
             class="nav-link" 
-            href="#"
+            [routerLink]="['/stars']"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
             [class.active]="activeTab === 'Stars'"
             (click)="setActive('Stars')"
             >STARS</a>
