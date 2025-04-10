@@ -1,19 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
-  imports: [RouterModule],
+  standalone: true, // ✅ ESSENCIAL!!!
+  imports: [RouterModule, FormsModule],
   templateUrl: './nav.component.html',
-  styleUrl: './nav.component.scss'
+  styleUrls: ['./nav.component.scss']
 })
 export class NavComponent {
+  username: string = '';
+  @Output() searchUser = new EventEmitter<string>();
+  @Input() user: any = null;
 
-  activeTab: string = ' ';
-
-  setActive(tab: string) {
-    this.activeTab = tab;
+search() {
+    if (!this.username) return;
+    console.log("searching .....")
+    this.searchUser.emit(this.username);
   }
-
-
 }

@@ -1,18 +1,46 @@
-<div class="card" style="width: 18rem;">
-    <img src="/me.jpg" class="card-img-top" alt="...">
+<div class="card text-center mt-4" style="width: 18rem;" *ngIf="user">
+    <img [src]="user.avatar_url" class="card-img-top" alt="User Avatar" />
+  
     <div class="card-body">
-        <h5 class="card-title">Mohamed Emara</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
+      <h5 class="card-title">{{ user.name || user.login }}</h5>
+      <p class="card-text">
+        {{ user.bio || 'This user has no bio.' }}
+      </p>
     </div>
+  
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
+      <li class="list-group-item">
+        Repositories: {{ user.public_repos }}
+      </li>
+      <li class="list-group-item">
+        Company: {{ user.company }}
+      </li>
+      <li class="list-group-item">
+        Location: {{ user.location }}
+      </li>
+      <li class="list-group-item">
+        Followers: {{ user.followers }}
+      </li>
+      <li class="list-group-item">
+        Following: {{ user.following }}
+      </li>
     </ul>
+  
     <div class="card-body">
-        <a href="#">REPOSITORIES</a>
-        <br>
-        <a href="#">STARS</a>
+      <li class="item">
+        <a class="btn btn-outline-success"
+           [href]="user.html_url + '?tab=repositories'"
+           target="_blank">
+          REPOSITORIES
+        </a>
+      </li>
+    
+      <li class="item">
+        <a class="btn btn-outline-success"
+           [href]="'https://github.com/' + user.login + '?tab=stars'"
+           target="_blank">
+          STARS
+        </a>
+      </li>
     </div>
-</div>
+  </div>

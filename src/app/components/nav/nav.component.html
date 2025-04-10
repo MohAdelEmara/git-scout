@@ -3,8 +3,8 @@
 <nav class="navbar bg-white">
     <div class="container-fluid">
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="cade o nome do dev ?" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit"> search </button>
+        <input   [(ngModel)]="username"   name="username" class="form-control me-2" type="search" placeholder="cade o nome do dev ?" aria-label="Search">
+        <button class="btn btn-outline-success" type="button" (click)="search()"> search </button>
       </form>
     </div>
   </nav>
@@ -22,29 +22,22 @@
         <ul class="nav nav-pills ms-auto">
           <li class="nav-item">
             <a class="nav-link " 
-            [class.active]="activeTab === 'Home'"
-            (click)="setActive('Home')"
             aria-current="page" 
             [routerLink]="['/home']"
             routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }">HOME</a>
           </li>
+          <li class="nav-item" >
+            <a class="nav-link"
+               [attr.href]="'https://github.com/' + user.login + '?tab=repositories'"
+               target="_blank"
+            >REPOSITORIES</a>
+          </li>
+          
           <li class="nav-item">
             <a class="nav-link"
-            [class.active]="activeTab === 'Repositories'"
-            (click)="setActive('Repositories')"
-            [routerLink]="['/repo']"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }">REPOSITORIES</a>
-          </li>
-          <li class="nav-item">
-            <a 
-            class="nav-link" 
-            [routerLink]="['/stars']"
-            routerLinkActive="active"
-            [routerLinkActiveOptions]="{ exact: true }"
-            [class.active]="activeTab === 'Stars'"
-            (click)="setActive('Stars')"
+               [attr.href]="'https://github.com/' + user.login + '?tab=stars'"
+               target="_blank"
             >STARS</a>
           </li>
         </ul>
