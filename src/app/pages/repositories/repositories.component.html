@@ -1,5 +1,6 @@
 <app-nav></app-nav>
 <main>
-
+<p *ngIf="repos.length === 0" >⏳ Carregando repositórios...</p>
+<app-repo *ngFor="let repo of repos" [repo]="repo" ></app-repo>
 </main>
 <app-footer></app-footer>
